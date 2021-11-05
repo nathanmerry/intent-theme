@@ -1,5 +1,5 @@
 <section class="py-10 lg:py-20 frontPageVision">
-  <div class="relative">
+  <div class="container relative mx-auto">
     <div class="relative z-30 px-2 mx-auto max-w-container-sm lg:px-0">
       <div class="mb-8 text-center header-sm">{{ $module['title_small'] }}</div>
       <h2 class="mx-auto mb-10 font-bold text-center header-lg lg:w-8/12">{{ $module['title_large'] }}</h2>
