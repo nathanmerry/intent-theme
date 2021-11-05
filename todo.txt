@@ -1,0 +1,38 @@
+- pages
+    - homepage
+        - acf fields
+        - component desgin desktop
+        - component desgin mobile
+        - our brands js
+    - who we are
+        - acf fields
+        - component desgin desktop
+        - component desgin mobile
+    - career
+        - acf fields
+        - company culture js
+        - component desgin desktop
+        - component desgin mobile
+    - contact
+    - component desgin desktop
+    - component desgin mobile
+    - contact form endpoint
+    - contact form js
+        - ? what will happen once form is submited?
+- menu
+    - get menu items
+        - active state
+        - ? will there be chance of dropdown menu? if so build out menu tree
+    - primary menu desgin desktop
+    - primary menu desgin mobile
+    - footer logo
+    - footer data
+    - primary logo
+- socials
+    - get socials data
+    - socials icons
+- theme
+    - main theme colors CSS and Tailwind - DONE
+    
+
+

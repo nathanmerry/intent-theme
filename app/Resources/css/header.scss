@@ -1,0 +1,29 @@
+.header-sm {
+  @apply text-lg;
+  @apply lg:text-2xl;
+  @apply font-extrabold;
+  @apply tracking-widest;
+  @apply uppercase;
+  @apply font-header;
+}
+
+.header-lg {
+  @apply text-4xl;
+  @apply lg:text-6xl;
+}
+
+.header-xl {
+  @apply text-5xl;
+  @apply lg:text-7xl;
+  @apply font-extrabold;
+  @apply font-header;
+}
+
+.header-bold {
+  @apply font-header;
+  @apply font-extrabold;
+}
+
+h1 {
+  letter-spacing: -3px;
+}

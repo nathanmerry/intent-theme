@@ -1,0 +1,37 @@
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Build node assets
+          image: node:14.15.3
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Install php deps
+          image: php:7.4.2
+          script:
+            - apt-get update
+            - apt-get install -y libzip-dev zip
+            - docker-php-ext-install zip
+            - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+            - composer install -o
+          artifacts:
+            - vendor/**            
+      - step:
+          name: Deploy to staging
+          # trigger: manual
+          script:
+            - pipe: atlassian/rsync-deploy:0.4.4
+              variables:
+                USER: 'root'
+                SERVER: '134.122.110.215'
+                REMOTE_PATH: '/var/www/html/wp-content/themes/moneytransfers-theme'
+                LOCAL_PATH: './'
+                DEBUG: 'true'
+                DELETE_FLAG: 'false'
+                EXTRA_ARGS: '-chrvqO --delete --no-perms --no-owner --no-group --exclude /.bitbucket/ --exclude /.git/ --exclude /node_modules/ --exclude /bitbucket-pipelines.yml --exclude /composer.json --exclude /composer.lock --exclude /package.json --exclude /package-lock.json --exclude /postcss.config.js --exclude /tailwind.config.js --exclude /webpack.config.js'           
